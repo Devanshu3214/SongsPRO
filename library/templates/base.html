@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>{% block title %}SongPro{% endblock %}</title>
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+    <nav class="brand">
+        <a href="{% url 'home' %}">SongPro</a>
+        <ul class="list">
+    
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'song_list' %}">My Playlist</a></li>
+          {% else %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+          {% endif %}
+
+          <li><a href="{% url 'register' %}">Register</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+          <li><a href="{% url 'home' %}">About</a></li>
+        </ul>
+        <button class="search">Search</button>
+        <button class="menu">Menu</button>
+      </nav>
+
+      {% if display_background_image %}
+      <img src="{% static 'Background.avif' %}" alt="">
+      {% endif %}
+
+     
+      
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}    
+    </div>
+   
+</body>
+</html>

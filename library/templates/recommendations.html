@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Recommendations
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Recommendations</h1>
+    <div class="row row-cols-5">
+        {% for song in recommendations %}
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ song.name }}</h5>
+                    <p class="card-text">{{ song.artists }} ({{ song.year }})</p>
+                    <p class="card-text"><em>Duration:</em> {{ song.duration_ms }} milliseconds</p>
+                    <p class="card-text"><em>Explicit:</em> {% if song.explicit %}Yes{% else %}No{% endif %}</p>
+                </div>
+                <div class="card-footer">
+                    <form action="{% url 'add_rec_songs' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="song_name" value="{{ song.name }}">
+                        <input type="hidden" name="song_year" value="{{ song.year }}">
+                        <input type="hidden" name="song_artist" value="{{ song.artists }}"> 
+                        <input type="hidden" name="song_genres" value="{{ song.genre }}"> 
+                        <button type="submit" class="btn btn-success btn-block">Add To Playlist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

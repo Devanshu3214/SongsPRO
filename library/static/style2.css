@@ -1,0 +1,59 @@
+
+.full-screen-form {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container {
+    padding-top: 60px; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Style the table headings */
+th {
+    text-align: left;
+    background-color: #f2f2f2;
+    padding: 8px;
+}
+
+/* Style the table data */
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Add some spacing between rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
