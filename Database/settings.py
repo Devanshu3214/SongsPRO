@@ -134,9 +134,10 @@ LOGIN_URL = '/login/'
 
 STATIC_URL = 'static/'
 
-
+ALLOWED_HOSTS = [".vercel.app"]
+STATIC_ROOT = BASE_DIR / "staticfiles" / "static"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'library', 'static'),)
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build','static')
+
 
 
 
