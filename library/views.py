@@ -140,7 +140,7 @@ def song_recommendation(request):
         return render(request, 'song_recommendation_form.html')
 
 from django.http import HttpResponse
-import pandas as pd
+
 from .models import Data
 
 def export_to_excel(request):

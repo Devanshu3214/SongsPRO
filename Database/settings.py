@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pd(ej^5p1r&re9t8p=m4#0aef1yu1@m_uf#7hh)((jp&dfrlr7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','devanshu3214','localhost']
 
 
 # Application definition
@@ -74,13 +74,24 @@ WSGI_APPLICATION = 'Database.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'mydata.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'mydata.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'postgres',  # Or your PostgreSQL username
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',  # Or your PostgreSQL host
+        'PORT': '5432',       # Or your PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -100,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+import os
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -121,6 +133,11 @@ LOGIN_URL = '/login/'
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'library', 'static'),)
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build','static')
+
 
 
 # Default primary key field type
