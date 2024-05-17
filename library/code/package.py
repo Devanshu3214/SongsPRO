@@ -2,14 +2,11 @@ import os
 from collections import defaultdict
 import pandas as pd
 import numpy as np
-import seaborn as sns
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import euclidean_distances
 from scipy.spatial.distance import cdist
-from sklearn.manifold import TSNE
-from sklearn.decomposition import PCA
+
 
 
 import spotipy
