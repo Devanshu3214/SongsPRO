@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Data(models.Model): # Corrected the class name to start with uppercase and inherit from models.Model
     song = models.CharField(max_length=50, blank=True)
@@ -9,6 +10,7 @@ class Data(models.Model): # Corrected the class name to start with uppercase and
     rating = models.IntegerField(default=0)  # Corrected the default value to an integer
     created_by = models.CharField(max_length=40, blank=True)
     last_updated = models.DateTimeField(default=timezone.now)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)  # Add this line to associate with a user
     export_to_csv = models.BooleanField(default=False)
 
     def __str__(self) -> str:
